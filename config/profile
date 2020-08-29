@@ -1,0 +1,37 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+if [ "$PS1" ]; then
+  if [ "$BASH" ] && [ "$BASH" != "/bin/sh" ]; then
+    # The file bash.bashrc already sets the default PS1.
+    # PS1='\h:\w\$ '
+    if [ -f /etc/bash.bashrc ]; then
+      . /etc/bash.bashrc
+    fi
+  else
+    if [ "`id -u`" -eq 0 ]; then
+      PS1='# '
+    else
+      PS1='$ '
+    fi
+  fi
+fi
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+export JAVA_HOME=/usr/local/jdk1.8.0_101
+export SCALA_HOME=/usr/local/scala-2.11.8
+export HADOOP_HOME=/usr/local/hadoop-2.7.3
+export SPARK_HOME=/usr/local/spark-2.3.0-bin-hadoop2.7
+export HIVE_HOME=/usr/local/apache-hive-2.3.2-bin
+export MYSQL_HOME=/usr/local/mysql
+
+export PATH=$HIVE_HOME/bin:$MYSQL_HOME/bin:$JAVA_HOME/bin:$SCALA_HOME/bin:$HADOOP_HOME/bin:$SPARK_HOME/bin:$PATH
+

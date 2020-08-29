@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hadoop-maste:9000/</value>
+    </property>
+	<property>
+         <name>hadoop.tmp.dir</name>
+         <value>file:/usr/local/hadoop/tmp</value>
+    </property>
+	<property>
+        <name>hadoop.proxyuser.root.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.root.groups</name>
+        <value>*</value>
+    </property>
+	<property>
+        <name>hadoop.proxyuser.oozie.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.oozie.groups</name>
+        <value>*</value>
+    </property>
+</configuration>
