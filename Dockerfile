@@ -27,6 +27,9 @@ RUN apt-get -qqy install netcat-traditional vim wget net-tools iputils-ping open
 # 安装Python常用包
 RUN pip3 install pandas numpy matplotlib sklearn seaborn scipy tensorflow gensim
 
+# 添加Python的软连接
+RUN ln -s /usr/bin/python3.6 /usr/bin/python
+
 # 添加JDK
 ADD ./jdk-8u101-linux-x64.tar.gz /usr/local 
 # 添加hadoop

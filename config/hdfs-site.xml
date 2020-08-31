@@ -21,3 +21,4 @@
 		<value>false</value>
 	</property>
  </configuration>
+pyspark --master spark://hadoop-maste:7077
